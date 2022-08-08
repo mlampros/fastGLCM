@@ -1,0 +1,31 @@
+citHeader("Please cite both the package and the original articles / software in your publications:")
+
+year <- sub("-.*", "", meta$Date)
+note <- sprintf("R package version %s", meta$Version)
+
+bibentry(
+  bibtype = "Manual",
+  title   = "{fastGLCM}: Fast Gray Level Co-occurrence Matrix computation (GLCM) using R",
+  author  = person("Lampros", "Mouselimis"),
+  year    = year,
+  note    = note,
+  url     = "https://CRAN.R-project.org/package=fastGLCM"
+)
+
+bibentry(
+  bibtype = "Manual",
+  title   = "fastGLCM",
+  author  = person("Takahiro", "Toizumi"),
+  year    = "2021",
+  url     = "https://github.com/tzm030329/GLCM"
+)
+
+bibentry(
+  bibtype   = "InProceedings",
+  author    = c(as.person("Takahiro Toizumi"), as.person("Simone Zini"), as.person("Kazutoshi Sagi"), as.person("Eiji Kaneko"), as.person("Masato Tsukada"), as.person("Raimondo Schettini")),
+  title     = "Artifact-Free Thin Cloud Removal Using Gans",
+  booktitle = "IEEE International Conference on Image Processing (ICIP)",
+  year      = "2019",
+  pages     = "3596--3600",
+  doi       = "10.1109/ICIP.2019.8803652"
+)

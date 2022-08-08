@@ -1,0 +1,34 @@
+Package: fastGLCM
+Type: Package
+Title: GLCM Texture Features
+Version: 1.0.0
+Date: 2022-08-08
+Authors@R: c( person("Lampros", "Mouselimis", email = "mouselimislampros@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "https://orcid.org/0000-0002-8024-1546")), person("Takahiro", "Toizumi", role = "cph", comment = "Author of the fastGLCM Python code") )
+Maintainer: Lampros Mouselimis <mouselimislampros@gmail.com>
+BugReports: https://github.com/mlampros/fastGLCM/issues
+URL: https://github.com/mlampros/fastGLCM
+Description: This R package includes two 'Gray Level Co-occurrence Matrix' ('GLCM') implementations: The first is a fast 'GLCM' feature texture computation based on 'Python' 'Numpy' arrays (Github Repository, <https://github.com/tzm030329/GLCM>). The second is a fast 'GLCM' 'RcppArmadillo' implementation which is parallelized (using 'OpenMP') with the option to return all 'GLCM' features at once. For more information, see 'Artifact-Free Thin Cloud Removal Using Gans' by Toizumi, Takahiro and Zini, Simone and Sagi, Kazutoshi and Kaneko, Eiji and Tsukada, Masato and Schettini, Raimondo in IEEE International Conference on Image Processing (ICIP), pp. 3596-3600, 2019, <doi:10.1109/ICIP.2019.8803652>.
+SystemRequirements: numpy: pip3 install -U numpy (deb), cv2: pip3 install -U opencv-python (deb), libarmadillo: apt-get install -y libarmadillo-dev (deb), libblas: apt-get install -y libblas-dev (deb), liblapack: apt-get install -y liblapack-dev (deb), libarpack++2: apt-get install -y libarpack++2-dev (deb), gfortran: apt-get install -y gfortran (deb)
+License: GPL-3
+Copyright: inst/COPYRIGHTS
+Depends: R(>= 3.2.3)
+Imports: 
+    Rcpp (>= 1.0.8.3), 
+    R6,
+    rlang,
+    OpenImageR,
+    utils
+LinkingTo: 
+    Rcpp, 
+    RcppArmadillo,
+    OpenImageR
+Suggests:
+    reticulate,
+    covr,
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Encoding: UTF-8
+RoxygenNote: 7.1.2
+Config/testthat/edition: 3
+VignetteBuilder: knitr
