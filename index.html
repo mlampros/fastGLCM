@@ -88,6 +88,7 @@
 <li>An Rcpp Armadillo implementation which is parallelized and modified to return all GLCM features at once. Preferably use this version but be aware that there is a difference when computing the convolution between the OpenCV (python fastGLCM implementation) and the Armadillo library (Rcpp implementation). OpenCV performs interpolation in the image boundaries whereas Armadillo does not. For big images there is no visual difference but it’s visible in small imagery.</li>
 <li>A fast GLCM feature texture computation based on <em>python numpy arrays</em> (for more information see the <a href="https://github.com/tzm030329/GLCM" class="external-link">‘fastGLCM’ Python Code Github Repository</a>). To use this version, you will need to have Python configured in your Operating System and the <a href="https://github.com/rstudio/reticulate" class="external-link">reticulate</a> R package installed.</li>
 </ul>
+<p>More details on the functionality of <em>fastGLCM</em> can be found in the package <a href="https://mlampros.github.io/fastGLCM/reference/index.html" class="external-link">Documentation</a> and <a href="https://mlampros.github.io/fastGLCM/articles/fastGLCM_Functionality.html" class="external-link">Vignette</a></p>
 <p><br></p>
 <div class="section level3">
 <h3 id="installation">Installation:<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -101,6 +102,39 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'mlampros/fastGLCM'</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
+<div class="section level4">
+<h4 id="docker-image">
+<strong>Docker Image</strong><a class="anchor" aria-label="anchor" href="#docker-image"></a>
+</h4>
+<p><br></p>
+<p><strong>Docker images</strong> of the <em>fastGLCM</em> package are available to download from my <a href="https://hub.docker.com/r/mlampros/fastglcm" class="external-link">dockerhub</a> account. The images come with <em>Rstudio</em> and the <em>R-development</em> version (latest) installed. The whole process was tested on Ubuntu 18.04. To <strong>pull</strong> &amp; <strong>run</strong> the image do the following,</p>
+<p><br></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2"></a>docker pull mlampros<span class="op">/</span>fastglcm<span class="op">:</span>rstudiodev</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>docker run <span class="op">-</span>d <span class="op">--</span>name rstudio_dev <span class="op">-</span>e USER=rstudio <span class="op">-</span>e PASSWORD=give_here_your_password <span class="op">--</span>rm <span class="op">-</span>p <span class="dv">8787</span><span class="op">:</span><span class="dv">8787</span> mlampros<span class="op">/</span>fastglcm<span class="op">:</span>rstudiodev</span></code></pre></div>
+<p><br></p>
+<p>The user can also <strong>bind</strong> a home directory / folder to the image to use its files by specifying the <strong>-v</strong> command,</p>
+<p><br></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2"></a>docker run <span class="op">-</span>d <span class="op">--</span>name rstudio_dev <span class="op">-</span>e USER=rstudio <span class="op">-</span>e PASSWORD=give_here_your_password <span class="op">--</span>rm <span class="op">-</span>p <span class="dv">8787</span><span class="op">:</span><span class="dv">8787</span> <span class="op">-</span>v <span class="op">/</span>home<span class="op">/</span>YOUR_DIR<span class="op">:</span><span class="er">/</span>home<span class="op">/</span>rstudio<span class="op">/</span>YOUR_DIR mlampros<span class="op">/</span>fastglcm<span class="op">:</span>rstudiodev</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span></code></pre></div>
+<p><br></p>
+<p>The <strong>USER</strong> defaults to <em>rstudio</em> but you have to give your <strong>PASSWORD</strong> of preference (see <a href="https://rocker-project.org/" class="external-link">https://rocker-project.org</a> for more information).</p>
+<p><br></p>
+<p>Open your web-browser and depending where the docker image was <em>build / run</em> give,</p>
+<p><br></p>
+<p><strong>1st. Option</strong> on your personal computer,</p>
+<p><br></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>http<span class="op">:</span><span class="er">//</span><span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">0.0</span><span class="op">:</span><span class="dv">8787</span> </span></code></pre></div>
+<p><br></p>
+<p><strong>2nd. Option</strong> on a cloud instance,</p>
+<p><br></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>http<span class="op">:</span><span class="er">//</span>Public DNS<span class="op">:</span><span class="dv">8787</span></span></code></pre></div>
+<p><br></p>
+<p>to access the Rstudio console in order to give your username and password.</p>
+<p><br></p>
+</div>
 </div>
 <div class="section level3">
 <h3 id="similar-projects">
@@ -120,13 +154,13 @@
 <p><br></p>
 <p>If you use the code of this repository in your paper or research please cite both <strong>fastGLCM</strong> and the <strong>original articles</strong> (see CITATION) <code>https://CRAN.R-project.org/package=fastGLCM</code>:</p>
 <p><br></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">@</span>Manual{,</span>
-<span id="cb3-2"><a href="#cb3-2"></a>  title =<span class="st"> </span>{{fastGLCM}<span class="op">:</span><span class="st"> </span>Fast Gray Level Co<span class="op">-</span>occurrence Matrix <span class="kw">computation</span> (GLCM) using R},</span>
-<span id="cb3-3"><a href="#cb3-3"></a>  author =<span class="st"> </span>{Lampros Mouselimis},</span>
-<span id="cb3-4"><a href="#cb3-4"></a>  year =<span class="st"> </span>{<span class="dv">2022</span>},</span>
-<span id="cb3-5"><a href="#cb3-5"></a>  note =<span class="st"> </span>{R package version <span class="dv">1</span>.<span class="fl">0.0</span>},</span>
-<span id="cb3-6"><a href="#cb3-6"></a>  url =<span class="st"> </span>{https<span class="op">:</span><span class="er">//</span>CRAN.R<span class="op">-</span>project.org<span class="op">/</span>package=fastGLCM},</span>
-<span id="cb3-7"><a href="#cb3-7"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="op">@</span>Manual{,</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  title =<span class="st"> </span>{{fastGLCM}<span class="op">:</span><span class="st"> </span>Fast Gray Level Co<span class="op">-</span>occurrence Matrix <span class="kw">computation</span> (GLCM) using R},</span>
+<span id="cb7-3"><a href="#cb7-3"></a>  author =<span class="st"> </span>{Lampros Mouselimis},</span>
+<span id="cb7-4"><a href="#cb7-4"></a>  year =<span class="st"> </span>{<span class="dv">2022</span>},</span>
+<span id="cb7-5"><a href="#cb7-5"></a>  note =<span class="st"> </span>{R package version <span class="dv">1</span>.<span class="fl">0.0</span>},</span>
+<span id="cb7-6"><a href="#cb7-6"></a>  url =<span class="st"> </span>{https<span class="op">:</span><span class="er">//</span>CRAN.R<span class="op">-</span>project.org<span class="op">/</span>package=fastGLCM},</span>
+<span id="cb7-7"><a href="#cb7-7"></a>}</span></code></pre></div>
 <p><br></p>
 </div>
 </div>
