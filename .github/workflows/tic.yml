@@ -123,7 +123,7 @@ jobs:
         run: |
           Rscript -e "remotes::install_github('rstudio/reticulate')"
           Rscript -e "reticulate::install_miniconda()"
-          Rscript -e "reticulate::conda_create(envname = 'glcm-reticulate', python_version = '3.8')"
+          Rscript -e "reticulate::conda_create(envname = 'glcm-reticulate')"
           Rscript -e "reticulate::conda_install(envname = 'glcm-reticulate', packages = c('numpy', 'matplotlib', 'scikit-image', 'opencv'))"
           Rscript -e "reticulate::conda_export(envname = 'glcm-reticulate', file = 'environment.yml')"
 
