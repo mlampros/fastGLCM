@@ -18,9 +18,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: remove and clone the python-glcm repository
-        working-directory: ./inst
+        working-directory: ${{ github.workspace }}
         run: |
-          rm -r GLCM_Python_Code
+          rm -r inst/GLCM_Python_Code
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git clone https://github.com/tzm030329/GLCM.git GLCM_Python_Code
+          git clone https://github.com/tzm030329/GLCM.git inst/GLCM_Python_Code
+          git diff-index --quiet HEAD || git commit -am "update the 'GLCM_Python_Code' directory"
+          git push
