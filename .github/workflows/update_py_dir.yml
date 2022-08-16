@@ -1,0 +1,26 @@
+
+#...............................................
+# Update the python directory code once per week
+#...............................................
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"
+  push:
+    branches: master
+
+name: update code of python directory
+
+jobs:
+  blogdown:
+    name: update-python-code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: remove and clone the python-glcm repository
+        working-directory: ./inst
+        run: |
+          rm -r GLCM_Python_Code
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git clone https://github.com/tzm030329/GLCM.git GLCM_Python_Code

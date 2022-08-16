@@ -44,6 +44,10 @@ compute_elapsed_time = function(time_start) {
 #'
 #' @return it doesn't return an R object but it displays a list of input images
 #'
+#' @details
+#'
+#' For the usage of the 'plot_multi_images()' function see the example section of the 'fastGLCM_Rcpp()' function and 'fastglcm()' R6 class
+#'
 #' @importFrom OpenImageR GaborFeatureExtract
 
 plot_multi_images = function(list_images,
@@ -256,7 +260,7 @@ fastGLCM_Rcpp = function(data,
 #' names(lst_glcm_py)[6] = 'ASM'
 #'
 #' lst_glcm_py = append(lst_glcm_py, list(lst_glcm_py[['ASM_Energy']][[2]]), after = 6)
-#' names(lst_glcm_py)[7] = 'Energy'
+#' names(lst_glcm_py)[7] = 'energy'
 #'
 #' lst_glcm_py[['ASM_Energy']] = NULL
 #'

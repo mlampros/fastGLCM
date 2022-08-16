@@ -21,3 +21,6 @@ it doesn't return an R object but it displays a list of input images
 \description{
 Plot multiple images
 }
+\details{
+For the usage of the 'plot_multi_images()' function see the example section of the 'fastGLCM_Rcpp()' function and 'fastglcm()' R6 class
+}

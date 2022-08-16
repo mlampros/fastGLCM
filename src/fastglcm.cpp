@@ -293,7 +293,7 @@ Rcpp::List fast_GLCM(arma::Mat<int>& img,
       GLCM_list["homogeneity"] = homo;
     }
   }
-  if (!ASM.empty() & method_exists(methods, "ASM")) {
+  if (!ASM.empty() && method_exists(methods, "ASM")) {
     if (dir_save.isNotNull()) {
       ASM.save(dir_name + "ASM.csv", arma::csv_ascii);
     }
