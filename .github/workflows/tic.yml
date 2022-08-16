@@ -138,16 +138,15 @@ jobs:
       - name: "[Stage] Pip install (Linux, Windows)"
         if: runner.os != 'macOS'
         run: |
-          python3 -m pip install -U pip
-          python3 -m pip3 install numpy
-          python3 -m pip3 install opencv-python
-          python3 -m pip3 install matplotlib
-          python3 -m pip3 install scikit-image
+          python -m pip install numpy
+          python -m pip install opencv-python
+          python -m pip install matplotlib
+          python -m pip install scikit-image
 
       - name: "Script (Linux, Windows)"
         if: runner.os != 'macOS'
         run: |
-          Rscript -e "Sys.setenv(RETICULATE_PYTHON = system('which -a python3', intern = TRUE)[1])"
+          Rscript -e "Sys.setenv(RETICULATE_PYTHON = system('which -a python', intern = TRUE)[1])"
           Rscript -e "reticulate::py_config()"
           Rscript -e 'tic::script()'
 
