@@ -119,17 +119,13 @@ jobs:
           echo -e 'options(Ncpus = 4, pkgType = "source", repos = structure(c(CRAN = "https://cloud.r-project.org/")))' > $HOME/.Rprofile
           Rscript -e "remotes::install_github('ropensci/tic')" -e "print(tic::dsl_load())" -e "tic::prepare_all_stages()" -e "tic::before_install()" -e "tic::install()"
 
-      - name: "[Stage] Miniconda installation (applies to all OS's)"
+      - name: "[Stage] Script"
         run: |
           Rscript -e "remotes::install_github('rstudio/reticulate')"
           Rscript -e "reticulate::install_miniconda()"
+          Rscript -e "reticulate::conda_create(envname = 'glcm-reticulate', python_version = '3.8')"
+          Rscript -e "reticulate::conda_install(envname = 'glcm-reticulate', packages = c('numpy', 'matplotlib', 'scikit-image', 'opencv'))"
           echo "options(reticulate.conda_binary = reticulate:::miniconda_conda())" >> .Rprofile
-
-      - name: "[Stage] Script"
-        run: |
-          Rscript -e "reticulate::conda_create('r-reticulate', python_version = '3.8', packages = c('numpy', 'matplotlib', 'scikit-image', 'opencv'))"
-          Rscript -e "remotes::install_local()"
-          Rscript -e "reticulate::py_config()"
           Rscript -e 'tic::script()'
 
       - name: "[Stage] After Success"
