@@ -128,7 +128,7 @@ jobs:
 
       - name: "[Stage] Script"
         run: |
-          Rscript -e "reticulate::conda_create('r-reticulate', python_version = '3.8', packages = c('numpy==1.19', 'matplotlib==3.0.3', 'scikit-image', 'opencv-python'))"
+          Rscript -e "reticulate::conda_create('r-reticulate', python_version = '3.8', packages = c('numpy==1.19', 'matplotlib==3.0.3', 'scikit-image', 'opencv'))"
           Rscript -e "remotes::install_local()"
           Rscript -e 'tic::script()'
 
