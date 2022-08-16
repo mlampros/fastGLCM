@@ -131,8 +131,7 @@ jobs:
       - name: 'Install Conda Mac OSx'
         if: runner.os == 'macOS'
         run: |
-          Rscript -e "reticulate::conda_create('r-reticulate', packages = c('python==3.7', 'numpy==1.19'))"
-          Rscript -e "reticulate::conda_install(envname = 'glcm-reticulate', python_version = 'python==3.8', packages = c('numpy', 'matplotlib', 'scikit-image', 'opencv'))"
+          Rscript -e "reticulate::conda_create(envname = 'glcm-reticulate', python_version = 'python==3.8', packages = c('numpy', 'matplotlib', 'scikit-image', 'opencv'))"
           Rscript -e "remotes::install_local()"
 
       - name: "[Stage] Pip install (Linux, Windows)"
