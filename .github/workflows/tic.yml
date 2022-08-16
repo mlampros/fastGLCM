@@ -121,7 +121,9 @@ jobs:
 
       - name: "[Stage] Python installation"
         run: |
-          apt-get install -y python3-pip
+          apt-get -y update
+          apt-get install -y sudo
+          sudo apt-get install -y python3-pip
           python3 -m pip install -U pip
           pip3 install numpy
           pip3 install opencv-python
