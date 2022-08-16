@@ -17,7 +17,7 @@ Fast GLCM feature texture computation. This R package includes two GLCM implemen
 * An Rcpp Armadillo implementation which is parallelized and modified to return all GLCM features at once. Preferably use this version but be aware that there is a difference when computing the convolution between the OpenCV (python fastGLCM implementation) and the Armadillo library (Rcpp implementation). OpenCV performs interpolation in the image boundaries whereas Armadillo does not. For big images there is no visual difference but it's visible in small imagery.
 * A fast GLCM feature texture computation based on *python numpy arrays* (for more information see the ['fastGLCM' Python Code Github Repository](https://github.com/tzm030329/GLCM)). To use this version, you will need to have Python configured in your Operating System and the [reticulate](https://github.com/rstudio/reticulate) R package installed.
 
-More details on the functionality of *fastGLCM* can be found in the package [Documentation](https://mlampros.github.io/fastGLCM/reference/index.html) and [Vignette](https://mlampros.github.io/fastGLCM/articles/fastGLCM_Functionality.html)
+More details on the functionality of *fastGLCM* can be found in the package [Documentation](https://mlampros.github.io/fastGLCM/reference/index.html), [Vignette](https://mlampros.github.io/fastGLCM/articles/fastGLCM_Functionality.html) and [blog-post](http://mlampros.github.io/2022/08/16/gray_level_co_occurrence_matrix/)
 
 <br>
 
