@@ -45,7 +45,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+          cache: 'pip'                         # caching pip dependencies
       - uses: r-lib/actions/setup-r@master
         with:
           r-version: ${{ matrix.config.r }}
@@ -133,25 +136,23 @@ jobs:
           Rscript -e "reticulate::conda_install(envname = 'glcm-reticulate', python_version = 'python==3.8', packages = c('numpy', 'matplotlib', 'scikit-image', 'opencv'))"
           Rscript -e "remotes::install_local()"
 
-      - name: "[Stage] Python installation"
-        if: runner.os == 'Linux'
+      - name: "[Stage] Pip install (Linux, Windows)"
+        if: runner.os != 'macOS'
         run: |
-          sudo apt-get -y update
-          sudo apt-get install -y python3-pip
           python3 -m pip install -U pip
           pip3 install numpy
           pip3 install opencv-python
           pip3 install matplotlib
           pip3 install scikit-image
 
-      - name: "[Stage] Script"
-        if: runner.os == 'Linux'
+      - name: "Script (Linux, Windows)"
+        if: runner.os != 'macOS'
         run: |
           Rscript -e "Sys.setenv(RETICULATE_PYTHON = system('which -a python3', intern = TRUE)[1])"
           Rscript -e "reticulate::py_config()"
           Rscript -e 'tic::script()'
 
-      - name: "[Stage] Script"
+      - name: "Script (Linux)"
         if: runner.os != 'Linux'
         run: Rscript -e 'tic::script()'
 
