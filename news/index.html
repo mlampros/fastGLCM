@@ -59,10 +59,10 @@
 
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.1" id="fastglcm-101">fastGLCM 1.0.1<a class="anchor" aria-label="anchor" href="#fastglcm-101"></a></h2>
-<ul><li>I fixed a <em>clang14</em> warning related to line 296 of the fastglcm.cpp file: <em>warning: use of bitwise ‘&amp;’ with boolean operands</em>. The CRAN information page for <em>clang14</em> mentions: <em>“&amp; and | apply to integer types: &amp;&amp; and || should be used for booleans”</em>
-</li>
+<ul><li>I fixed two <em>clang-UBSAN</em> warnings related to the <em>fastglcm.cpp</em> file. The <em>first</em> gave: <em>warning: use of bitwise ‘&amp;’ with boolean operands</em> (The CRAN information page for <em>clang14</em> mentions, <em>“&amp; and | apply to integer types: &amp;&amp; and || should be used for booleans”</em>. The <em>second</em> was a <em>runtime error: nan is outside the range of representable values of type ‘int’</em> (integers can not be NaN).</li>
 <li>I’ve added a test case for the Python code of the <em>fastglcm</em> R6 class that is tested on Github (but not on CRAN)</li>
 <li>I’ve added a github action to update the python code of the ‘GLCM_Python_Code’ directory based on the ‘<a href="https://github.com/tzm030329/GLCM" class="external-link uri">https://github.com/tzm030329/GLCM</a>’ repository regularly (every week)</li>
+<li>I updated the Dockerfile</li>
 </ul></div>
     <div class="section level2"><h2 class="page-header" data-toc-text="1.0.0" id="fastglcm-100">fastGLCM 1.0.0<small>2022-08-15</small><a class="anchor" aria-label="anchor" href="#fastglcm-100"></a></h2></div>
   </div>
