@@ -9,6 +9,8 @@ RUN export DEBIAN_FRONTEND=noninteractive; apt-get -y update && \
  python3 -m pip install -U pip && \
  pip3 install -U numpy && \
  pip3 install -U opencv-python && \
+ pip3 install -U matplotlib && \
+ pip3 install -U scikit-image && \
  apt-get install -y libarmadillo-dev && \
  apt-get install -y libblas-dev && \
  apt-get install -y liblapack-dev && \
