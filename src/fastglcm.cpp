@@ -37,7 +37,7 @@ arma::mat digitize(arma::Mat<int> x, int bins, int min = 0, int max = 256) {
 
   arma::Row<int> res_linsp = arma::linspace<arma::Row<int>>(min, max, bins);
   arma::Row<int> res_bins(max);
-  // res_bins.fill(arma::datum::nan);                            # an integer can not be NaN (see: https://stackoverflow.com/a/3949459)
+  // res_bins.fill(arma::datum::nan);                            // an integer can not be NaN (see: https://stackoverflow.com/a/3949459)
 
   for (unsigned int i = 0; i < res_linsp.n_elem - 1; i++) {
     res_bins.subvec(res_linsp(i), res_linsp(i+1) - 1).fill(i);
