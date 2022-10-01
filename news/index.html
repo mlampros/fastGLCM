@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fastGLCM</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
@@ -57,6 +57,9 @@
       <small>Source: <a href="https://github.com/mlampros/fastGLCM/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="1.0.2" id="fastglcm-102">fastGLCM 1.0.2<small>2022-09-25</small><a class="anchor" aria-label="anchor" href="#fastglcm-102"></a></h2>
+<ul><li>I fixed a bug in the <em>‘fastglcm.cpp’</em> file related to the ‘mean’ and ‘std’ methods (if ‘std’ was selected ‘mean’ was returned too, which is not expected)</li></ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.1" id="fastglcm-101">fastGLCM 1.0.1<small>2022-09-04</small><a class="anchor" aria-label="anchor" href="#fastglcm-101"></a></h2>
 <ul><li>I fixed two <em>clang-UBSAN</em> warnings related to the <em>fastglcm.cpp</em> file. The <em>first</em> gave: <em>warning: use of bitwise ‘&amp;’ with boolean operands</em> (The CRAN information page for <em>clang14</em> mentions, <em>“&amp; and | apply to integer types: &amp;&amp; and || should be used for booleans”</em>. The <em>second</em> was a <em>runtime error: nan is outside the range of representable values of type ‘int’</em> (integers can not be NaN).</li>
