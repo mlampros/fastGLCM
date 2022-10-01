@@ -246,7 +246,7 @@ Rcpp::List fast_GLCM(arma::Mat<int>& img,
     }
   }
 
-  if (!mean_mt.empty()) {
+  if (!mean_mt.empty() && method_exists(methods, "mean")) {
     if (dir_save.isNotNull()) {
       mean_mt.save(dir_name + "mean.csv", arma::csv_ascii);
       mean_mt.reset();                                                     // To forcefully release memory

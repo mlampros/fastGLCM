@@ -12,7 +12,7 @@ on:
 name: update code of python directory
 
 jobs:
-  blogdown:
+  pythoncode:
     name: update-python-code
     runs-on: ubuntu-latest
     steps:

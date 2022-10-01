@@ -1,4 +1,9 @@
 
+## fastGLCM 1.0.2
+
+* I fixed a bug in the *'fastglcm.cpp'* file related to the 'mean' and 'std' methods (if 'std' was selected 'mean' was returned too, which is not expected)
+
+
 ## fastGLCM 1.0.1
 
 * I fixed two *clang-UBSAN* warnings related to the *fastglcm.cpp* file. The *first* gave: *warning: use of bitwise '&' with boolean operands* (The CRAN information page for *clang14* mentions, *"& and | apply to integer types: && and || should be used for booleans"*. The *second* was a *runtime error: nan is outside the range of representable values of type 'int'* (integers can not be NaN).

@@ -1,8 +1,8 @@
 Package: fastGLCM
 Type: Package
 Title: 'GLCM' Texture Features
-Version: 1.0.1
-Date: 2022-09-05
+Version: 1.0.2
+Date: 2022-09-25
 Authors@R: c( person("Lampros", "Mouselimis", email = "mouselimislampros@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "https://orcid.org/0000-0002-8024-1546")), person("Takahiro", "Toizumi", role = "cph", comment = "Author of the fastGLCM Python code") )
 Maintainer: Lampros Mouselimis <mouselimislampros@gmail.com>
 BugReports: https://github.com/mlampros/fastGLCM/issues
@@ -29,6 +29,6 @@ Suggests:
     rmarkdown,
     testthat (>= 3.0.0)
 Encoding: UTF-8
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 Config/testthat/edition: 3
 VignetteBuilder: knitr

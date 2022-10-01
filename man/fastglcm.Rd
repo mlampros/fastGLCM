@@ -113,14 +113,14 @@ https://github.com/1044197988/Python-Image-feature-extraction
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{fastglcm$new()}}
-\item \href{#method-GLCM_compute}{\code{fastglcm$GLCM_compute()}}
-\item \href{#method-clone}{\code{fastglcm$clone()}}
+\item \href{#method-fastglcm-new}{\code{fastglcm$new()}}
+\item \href{#method-fastglcm-GLCM_compute}{\code{fastglcm$GLCM_compute()}}
+\item \href{#method-fastglcm-clone}{\code{fastglcm$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-fastglcm-new"></a>}}
+\if{latex}{\out{\hypertarget{method-fastglcm-new}{}}}
 \subsection{Method \code{new()}}{
 Initialization method for the 'fastglcm' R6 class
 \subsection{Usage}{
@@ -129,8 +129,8 @@ Initialization method for the 'fastglcm' R6 class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GLCM_compute"></a>}}
-\if{latex}{\out{\hypertarget{method-GLCM_compute}{}}}
+\if{html}{\out{<a id="method-fastglcm-GLCM_compute"></a>}}
+\if{latex}{\out{\hypertarget{method-fastglcm-GLCM_compute}{}}}
 \subsection{Method \code{GLCM_compute()}}{
 The GLCM computation method to receive the results
 \subsection{Usage}{
@@ -175,8 +175,8 @@ a list object if the method is set to 'ASM_Energy' otherwise a numeric matrix
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-fastglcm-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-fastglcm-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
