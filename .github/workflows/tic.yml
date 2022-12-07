@@ -57,7 +57,7 @@ jobs:
       # Linux: ~ 1 min
       # macOS: ~ 1 min 30s
       # Windows: never finishes
-      - uses: r-lib/actions/setup-tinytex@master
+      - uses: r-lib/actions/setup-tinytex@v2
         if: matrix.config.latex == 'true'
 
       - uses: r-lib/actions/setup-pandoc@v2
