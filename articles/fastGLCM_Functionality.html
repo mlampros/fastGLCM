@@ -75,7 +75,7 @@
 
       
 
-      </header><script src="fastGLCM_Functionality_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Functionality of the fastGLCM R package</h1>
@@ -88,23 +88,41 @@
 
     
     
-<p>The <strong>fastGLCM</strong> R package is an <em>RcppArmadillo</em> implementation of the Python Code for <em>Fast Gray-Level Co-Occurrence Matrix by numpy</em>,</p>
+<p>The <strong>fastGLCM</strong> R package is an <em>RcppArmadillo</em>
+implementation of the Python Code for <em>Fast Gray-Level Co-Occurrence
+Matrix by numpy</em>,</p>
 <ul>
-<li><a href="https://github.com/tzm030329/GLCM" class="external-link">Github repository of the Python code</a></li>
-<li>“Artifact-Free Thin Cloud Removal Using Gans” by Toizumi, Takahiro and Zini, Simone and Sagi, Kazutoshi and Kaneko, Eiji and Tsukada, Masato and Schettini, Raimondo in IEEE International Conference on Image Processing (ICIP), pp. 3596-3600, 2019, <a href="https://doi.org/10.1109/ICIP.2019.8803652" class="external-link uri">https://doi.org/10.1109/ICIP.2019.8803652</a>
+<li><a href="https://github.com/tzm030329/GLCM" class="external-link">Github repository of the
+Python code</a></li>
+<li>“Artifact-Free Thin Cloud Removal Using Gans” by Toizumi, Takahiro
+and Zini, Simone and Sagi, Kazutoshi and Kaneko, Eiji and Tsukada,
+Masato and Schettini, Raimondo in IEEE International Conference on Image
+Processing (ICIP), pp. 3596-3600, 2019, <a href="https://doi.org/10.1109/ICIP.2019.8803652" class="external-link uri">https://doi.org/10.1109/ICIP.2019.8803652</a>
 </li>
 </ul>
-<p>This vignette shows how to use the Rcpp Armadillo version of the <em>fastGLCM</em> R package.</p>
-<p>The python version works similarly and is included as an R6 class (see the documentation of <em>fastglcm</em>). However, it requires a python configuration in the user’s operating system and additionally the installation of the <a href="https://github.com/rstudio/reticulate" class="external-link">reticulate</a> R package.</p>
+<p>This vignette shows how to use the Rcpp Armadillo version of the
+<em>fastGLCM</em> R package.</p>
+<p>The python version works similarly and is included as an R6 class
+(see the documentation of <em>fastglcm</em>). However, it requires a
+python configuration in the user’s operating system and additionally the
+installation of the <a href="https://github.com/rstudio/reticulate" class="external-link">reticulate</a> R
+package.</p>
 <p><br></p>
-<p>For the theoretical background of the <em>Gray-Level Co-Occurrence Matrix Textures</em> the user can consult an <a href="https://prism.ucalgary.ca/bitstream/handle/1880/51900/texture%20tutorial%20v%203_0%20180206.pdf" class="external-link">existing Tutorial of the University of Calgary</a>.</p>
+<p>For the theoretical background of the <em>Gray-Level Co-Occurrence
+Matrix Textures</em> the user can consult an <a href="https://prism.ucalgary.ca/bitstream/handle/1880/51900/texture%20tutorial%20v%203_0%20180206.pdf" class="external-link">existing
+Tutorial of the University of Calgary</a>.</p>
 <p><br></p>
 <div class="section level2">
 <h2 id="sample-satellite-imagery">Sample Satellite Imagery<a class="anchor" aria-label="anchor" href="#sample-satellite-imagery"></a>
 </h2>
 <p><br></p>
-<p>The <em>fastGLCM</em> R package includes an <em>ALOS-3 simulation image</em> from JAXA (Japan Aerospace Exploration Agency) in compressed format (.zip) around Joso City, Ibaraki Prefecture from September 11, 2015, that will be used in this vignette for illustration purposes.</p>
-<p>Both <em>fastGLCM</em> versions of the R package take a 2-dimensional object as input (numeric matrix) and it is required that the range of pixel values are between 0 and 255,</p>
+<p>The <em>fastGLCM</em> R package includes an <em>ALOS-3 simulation
+image</em> from JAXA (Japan Aerospace Exploration Agency) in compressed
+format (.zip) around Joso City, Ibaraki Prefecture from September 11,
+2015, that will be used in this vignette for illustration purposes.</p>
+<p>Both <em>fastGLCM</em> versions of the R package take a 2-dimensional
+object as input (numeric matrix) and it is required that the range of
+pixel values are between 0 and 255,</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mlampros/fastGLCM" class="external-link">fastGLCM</a></span><span class="op">)</span></span>
@@ -129,7 +147,8 @@
 <span><span class="fu"><a href="https://rdrr.io/pkg/OpenImageR/man/imageShow.html" class="external-link">imageShow</a></span><span class="op">(</span><span class="va">im</span><span class="op">)</span></span></code></pre></div>
 <p><img src="fastGLCM_Functionality_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
 <p><br></p>
-<p>To decrease the computation time the initial width and height will be reduced to 500,</p>
+<p>To decrease the computation time the initial width and height will be
+reduced to 500,</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co">#....................................................</span></span>
@@ -178,7 +197,10 @@
 <span><span class="co">#&gt;  $ max          : num [1:500, 1:500] 7 10 13 15 15 12 10 8 8 8 ...</span></span>
 <span><span class="co">#&gt;  $ entropy      : num [1:500, 1:500] 8.59 8.49 8.42 8.07 8.07 ...</span></span></code></pre></div>
 <p><br></p>
-<p>The output matrices based on the selected methods (<em>mean</em>, <em>std</em>, <em>contrast</em>, <em>dissimilarity</em>, <em>homogeneity</em>, <em>ASM</em>, <em>energy</em>, <em>max</em>, <em>entropy</em>) can be visualized in a multi-plot,</p>
+<p>The output matrices based on the selected methods (<em>mean</em>,
+<em>std</em>, <em>contrast</em>, <em>dissimilarity</em>,
+<em>homogeneity</em>, <em>ASM</em>, <em>energy</em>, <em>max</em>,
+<em>entropy</em>) can be visualized in a multi-plot,</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="../reference/plot_multi_images.html">plot_multi_images</a></span><span class="op">(</span>list_images <span class="op">=</span> <span class="va">res_glcm</span>,</span>
@@ -189,7 +211,10 @@
 <p><br></p>
 <p><strong>Credits:</strong></p>
 <ul>
-<li>The <a href="https://www.eorc.jaxa.jp/ALOS/en/alos-3/datause/a3_simulation_e.htm" class="external-link">ALOS-3 simulation image</a> is based on the sample product provided by JAXA. Please, read the <a href="https://earth.jaxa.jp/en/data/policy/" class="external-link">terms of use for this sample product</a>
+<li>The <a href="https://www.eorc.jaxa.jp/ALOS/en/alos-3/datause/a3_simulation_e.htm" class="external-link">ALOS-3
+simulation image</a> is based on the sample product provided by JAXA.
+Please, read the <a href="https://earth.jaxa.jp/en/data/policy/" class="external-link">terms
+of use for this sample product</a>
 </li>
 </ul>
 <p><br></p>
@@ -213,7 +238,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

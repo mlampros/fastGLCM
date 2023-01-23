@@ -109,16 +109,16 @@
 <p><br></p>
 <p><strong>Docker images</strong> of the <em>fastGLCM</em> package are available to download from my <a href="https://hub.docker.com/r/mlampros/fastglcm" class="external-link">dockerhub</a> account. The images come with <em>Rstudio</em> and the <em>R-development</em> version (latest) installed. The whole process was tested on Ubuntu 18.04. To <strong>pull</strong> &amp; <strong>run</strong> the image do the following,</p>
 <p><br></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2"></a>docker pull mlampros<span class="op">/</span>fastglcm<span class="op">:</span>rstudiodev</span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a>docker run <span class="op">-</span>d <span class="op">--</span>name rstudio_dev <span class="op">-</span>e USER=rstudio <span class="op">-</span>e PASSWORD=give_here_your_password <span class="op">--</span>rm <span class="op">-</span>p <span class="dv">8787</span><span class="op">:</span><span class="dv">8787</span> mlampros<span class="op">/</span>fastglcm<span class="op">:</span>rstudiodev</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>docker pull mlampros<span class="sc">/</span>fastglcm<span class="sc">:</span>rstudiodev</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>docker run <span class="sc">-</span>d <span class="sc">--</span>name rstudio_dev <span class="sc">-</span>e USER<span class="ot">=</span>rstudio <span class="sc">-</span>e PASSWORD<span class="ot">=</span>give_here_your_password <span class="sc">--</span>rm <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> mlampros<span class="sc">/</span>fastglcm<span class="sc">:</span>rstudiodev</span></code></pre></div>
 <p><br></p>
 <p>The user can also <strong>bind</strong> a home directory / folder to the image to use its files by specifying the <strong>-v</strong> command,</p>
 <p><br></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2"></a>docker run <span class="op">-</span>d <span class="op">--</span>name rstudio_dev <span class="op">-</span>e USER=rstudio <span class="op">-</span>e PASSWORD=give_here_your_password <span class="op">--</span>rm <span class="op">-</span>p <span class="dv">8787</span><span class="op">:</span><span class="dv">8787</span> <span class="op">-</span>v <span class="op">/</span>home<span class="op">/</span>YOUR_DIR<span class="op">:</span><span class="er">/</span>home<span class="op">/</span>rstudio<span class="op">/</span>YOUR_DIR mlampros<span class="op">/</span>fastglcm<span class="op">:</span>rstudiodev</span>
-<span id="cb4-3"><a href="#cb4-3"></a></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>docker run <span class="sc">-</span>d <span class="sc">--</span>name rstudio_dev <span class="sc">-</span>e USER<span class="ot">=</span>rstudio <span class="sc">-</span>e PASSWORD<span class="ot">=</span>give_here_your_password <span class="sc">--</span>rm <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> <span class="sc">-</span>v <span class="sc">/</span>home<span class="sc">/</span>YOUR_DIR<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>YOUR_DIR mlampros<span class="sc">/</span>fastglcm<span class="sc">:</span>rstudiodev</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
 <p><br></p>
 <p>The <strong>USER</strong> defaults to <em>rstudio</em> but you have to give your <strong>PASSWORD</strong> of preference (see <a href="https://rocker-project.org/" class="external-link">https://rocker-project.org</a> for more information).</p>
 <p><br></p>
@@ -126,11 +126,11 @@
 <p><br></p>
 <p><strong>1st. Option</strong> on your personal computer,</p>
 <p><br></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>http<span class="op">:</span><span class="er">//</span><span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">0.0</span><span class="op">:</span><span class="dv">8787</span> </span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>http<span class="sc">:</span><span class="er">//</span><span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">0.0</span><span class="sc">:</span><span class="dv">8787</span> </span></code></pre></div>
 <p><br></p>
 <p><strong>2nd. Option</strong> on a cloud instance,</p>
 <p><br></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>http<span class="op">:</span><span class="er">//</span>Public DNS<span class="op">:</span><span class="dv">8787</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>http<span class="sc">:</span><span class="er">//</span>Public DNS<span class="sc">:</span><span class="dv">8787</span></span></code></pre></div>
 <p><br></p>
 <p>to access the Rstudio console in order to give your username and password.</p>
 <p><br></p>
@@ -154,13 +154,13 @@
 <p><br></p>
 <p>If you use the code of this repository in your paper or research please cite both <strong>fastGLCM</strong> and the <strong>original articles</strong> (see CITATION) <code>https://CRAN.R-project.org/package=fastGLCM</code>:</p>
 <p><br></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="op">@</span>Manual{,</span>
-<span id="cb7-2"><a href="#cb7-2"></a>  title =<span class="st"> </span>{{fastGLCM}<span class="op">:</span><span class="st"> </span>Fast Gray Level Co<span class="op">-</span>occurrence Matrix <span class="kw">computation</span> (GLCM) using R},</span>
-<span id="cb7-3"><a href="#cb7-3"></a>  author =<span class="st"> </span>{Lampros Mouselimis},</span>
-<span id="cb7-4"><a href="#cb7-4"></a>  year =<span class="st"> </span>{<span class="dv">2022</span>},</span>
-<span id="cb7-5"><a href="#cb7-5"></a>  note =<span class="st"> </span>{R package version <span class="dv">1</span>.<span class="fl">0.2</span>},</span>
-<span id="cb7-6"><a href="#cb7-6"></a>  url =<span class="st"> </span>{https<span class="op">:</span><span class="er">//</span>CRAN.R<span class="op">-</span>project.org<span class="op">/</span>package=fastGLCM},</span>
-<span id="cb7-7"><a href="#cb7-7"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">@</span>Manual{,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">=</span> {{fastGLCM}<span class="sc">:</span> Fast Gray Level Co<span class="sc">-</span>occurrence Matrix <span class="fu">computation</span> (GLCM) using R},</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  author <span class="ot">=</span> {Lampros Mouselimis},</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2022</span>},</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  note <span class="ot">=</span> {R package version <span class="dv">1</span>.<span class="fl">0.2</span>},</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>CRAN.R<span class="sc">-</span>project.org<span class="sc">/</span>package<span class="ot">=</span>fastGLCM},</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p><br></p>
 </div>
 </div>
@@ -224,7 +224,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
