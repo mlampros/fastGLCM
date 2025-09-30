@@ -1,39 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/articles/fastGLCM_Functionality.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/compute_elapsed_time.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fastGLCM_Rcpp.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fastglcm.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/inner_elapsed_time.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plot_multi_images.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://mlampros.github.io/fastGLCM/404.html</loc></url>
+<url><loc>https://mlampros.github.io/fastGLCM/articles/fastGLCM_Functionality.html</loc></url>
+<url><loc>https://mlampros.github.io/fastGLCM/articles/index.html</loc></url>
+<url><loc>https://mlampros.github.io/fastGLCM/authors.html</loc></url>
+<url><loc>https://mlampros.github.io/fastGLCM/index.html</loc></url>
+<url><loc>https://mlampros.github.io/fastGLCM/news/index.html</loc></url>
+<url><loc>https://mlampros.github.io/fastGLCM/reference/compute_elapsed_time.html</loc></url>
+<url><loc>https://mlampros.github.io/fastGLCM/reference/fastGLCM_Rcpp.html</loc></url>
+<url><loc>https://mlampros.github.io/fastGLCM/reference/fastglcm.html</loc></url>
+<url><loc>https://mlampros.github.io/fastGLCM/reference/index.html</loc></url>
+<url><loc>https://mlampros.github.io/fastGLCM/reference/inner_elapsed_time.html</loc></url>
+<url><loc>https://mlampros.github.io/fastGLCM/reference/plot_multi_images.html</loc></url>
 </urlset>
+
