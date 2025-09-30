@@ -31,6 +31,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
+      
       - uses: actions/setup-python@v6
         with:
           python-version: '3.10'
@@ -66,18 +67,59 @@ jobs:
         run: |
           brew install libpng jpeg libtiff
 
-      - name: "[Stage] Pip install (Linux, Windows) using the Github Action 'setup-python@v4'"
+      # Install Python packages (matching Dockerfile setup)
+      - name: Install Python packages
+        shell: bash
         run: |
-          python -m pip install numpy
-          python -m pip install opencv-python
-          python -m pip install matplotlib
-          python -m pip install scikit-image
+          if [ "$RUNNER_OS" == "Linux" ]; then
+            pip3 install --no-cache-dir numpy opencv-python-headless matplotlib scikit-image
+          elif [ "$RUNNER_OS" == "macOS" ]; then
+            python3 -m pip install --no-cache-dir numpy opencv-python-headless matplotlib scikit-image
+          else
+            python -m pip install --no-cache-dir numpy opencv-python-headless matplotlib scikit-image
+          fi
 
-      - name: "Script (Linux, Windows, Mac OSx)"
+      # Configure reticulate to use the correct Python
+      - name: Configure Python for reticulate
+        shell: Rscript {0}
         run: |
-          Rscript -e "install.packages(c('reticulate'), repos = 'https://cloud.r-project.org/')"
-          Rscript -e "Sys.setenv(RETICULATE_PYTHON = system('which -a python', intern = TRUE)[1])"
-          Rscript -e "reticulate::py_config()"
+          install.packages('reticulate', repos = 'https://cloud.r-project.org/')
+          library(reticulate)
+          
+          # Get Python path based on OS
+          if (Sys.info()["sysname"] == "Windows") {
+            python_path <- Sys.which("python")
+          } else {
+            python_path <- Sys.which("python3")
+          }
+          
+          cat("Python path:", python_path, "\n")
+          Sys.setenv(RETICULATE_PYTHON = python_path)
+          
+          # Configure and verify
+          py_config()
+          
+          # Verify all required modules are available
+          modules <- c("numpy", "cv2", "matplotlib", "skimage")
+          for (mod in modules) {
+            available <- py_module_available(mod)
+            cat(sprintf("%s is %s\n", mod, ifelse(available, "available", "NOT available")))
+            if (!available) {
+              stop(sprintf("Required Python module '%s' is not available", mod))
+            }
+          }
+
+      # Set Python path for subsequent steps
+      - name: Set Python path environment variable
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            PYTHON_PATH=$(which python)
+          else
+            PYTHON_PATH=$(which python3)
+          fi
+          echo "RETICULATE_PYTHON=$PYTHON_PATH" >> $GITHUB_ENV
+          echo "Python path set to: $PYTHON_PATH"
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
