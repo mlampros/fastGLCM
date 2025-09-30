@@ -1,11 +1,10 @@
 
-[![tic](https://github.com/mlampros/fastGLCM/workflows/tic/badge.svg?branch=master)](https://github.com/mlampros/fastGLCM/actions)
+[![R-CMD-check](https://github.com/mlampros/fastGLCM/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mlampros/fastGLCM/actions/workflows/R-CMD-check.yaml)
 [![docs: passing](https://img.shields.io/badge/docs-passing-success.svg)](https://mlampros.github.io/fastGLCM/reference/index.html)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/fastGLCM)](http://cran.r-project.org/package=fastGLCM)
 [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/fastGLCM?color=blue)](http://www.r-pkg.org/pkg/fastGLCM)
 [![](https://img.shields.io/docker/automated/mlampros/fastglcm.svg)](https://hub.docker.com/r/mlampros/fastglcm)
-[![Dependencies](https://tinyverse.netlify.com/badge/fastGLCM)](https://cran.r-project.org/package=fastGLCM)
-[![codecov.io](https://codecov.io/github/mlampros/fastGLCM/coverage.svg?branch=master)](https://codecov.io/github/mlampros/fastGLCM?branch=master)
+[![status](https://tinyverse.netlify.app/badge/fastGLCM)](https://CRAN.R-project.org/package=fastGLCM)
 
 
 ## fastGLCM
@@ -33,10 +32,13 @@ install.packages("fastGLCM")
 ```
 <br>
 
-and to download the latest version of the package from Github,
+or download the latest version from Github using the *pak* package,
+
+<br>
 
 ```R
-remotes::install_github('mlampros/fastGLCM')
+
+pak::pak('mlampros/fastGLCM')
 
 ```
 
@@ -126,8 +128,8 @@ If you use the code of this repository in your paper or research please cite bot
 @Manual{,
   title = {{fastGLCM}: Fast Gray Level Co-occurrence Matrix computation (GLCM) using R},
   author = {Lampros Mouselimis},
-  year = {2022},
-  note = {R package version 1.0.2},
+  year = {2025},
+  note = {R package version 1.0.3},
   url = {https://CRAN.R-project.org/package=fastGLCM},
 }
 ```

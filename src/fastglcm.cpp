@@ -3,7 +3,6 @@
 // [[Rcpp::depends("RcppArmadillo")]]
 // [[Rcpp::plugins(openmp)]]
 // [[Rcpp::depends(OpenImageR)]]
-// [[Rcpp::plugins(cpp11)]]
 
 #include <cstdlib>
 

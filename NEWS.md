@@ -1,4 +1,16 @@
 
+## fastGLCM 1.0.4
+
+* I removed the `SystemRequirements` from the DESCRIPTION file.
+
+
+## fastGLCM 1.0.3
+
+* I updated the `Makevars` and `Makevars.win` files by adding `-DARMA_USE_CURRENT` (see issue: https://github.com/RcppCore/RcppArmadillo/issues/476)
+* I removed the `-mthreads` compilation option from the "Makevars.win" file
+* I removed the "CXX_STD = CXX11" from the "Makevars" files, and the "[[Rcpp::plugins(cpp11)]]" from the "fastglcm.cpp" file due to the following NOTE from CRAN, "NOTE Specified C++11: please drop specification unless essential" (see also: https://www.tidyverse.org/blog/2023/03/cran-checks-compiled-code/#note-regarding-systemrequirements-c11)
+
+
 ## fastGLCM 1.0.2
 
 * I fixed a bug in the *'fastglcm.cpp'* file related to the 'mean' and 'std' methods (if 'std' was selected 'mean' was returned too, which is not expected)

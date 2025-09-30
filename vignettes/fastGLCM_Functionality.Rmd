@@ -27,7 +27,7 @@ The python version works similarly and is included as an R6 class (see the docum
 
 <br>
 
-For the theoretical background of the *Gray-Level Co-Occurrence Matrix Textures* the user can consult an [existing Tutorial of the University of Calgary](https://prism.ucalgary.ca/bitstream/handle/1880/51900/texture%20tutorial%20v%203_0%20180206.pdf).
+For the theoretical background of the *Gray-Level Co-Occurrence Matrix Textures* the user can consult an *existing Tutorial of the University of Calgary* (`https://prism.ucalgary.ca/bitstream/handle/1880/51900/texture%20tutorial%20v%203_0%20180206.pdf`).
 
 <br>
 
