@@ -52,6 +52,7 @@ jobs:
 
       - name: "Script (Linux, Windows, Mac OSx)"
         run: |
+          Rscript -e "install.packages(c('reticulate'), repos = 'https://cloud.r-project.org/')"
           Rscript -e "Sys.setenv(RETICULATE_PYTHON = system('which -a python', intern = TRUE)[1])"
           Rscript -e "reticulate::py_config()"
 
