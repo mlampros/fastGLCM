@@ -46,16 +46,12 @@ RUN apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Upgrade pip
-RUN python3 -m pip install --break-system-packages --no-cache-dir --upgrade pip
-
-# Install numpy first (required by others)
-RUN pip3 install --break-system-packages --no-cache-dir numpy
-
-# Install other Python packages one by one
-RUN pip3 install --break-system-packages --no-cache-dir opencv-python-headless
-RUN pip3 install --break-system-packages --no-cache-dir matplotlib
-RUN pip3 install --break-system-packages --no-cache-dir scikit-image
+# Install Python packages directly (without upgrading pip)
+RUN pip3 install --break-system-packages --no-cache-dir \
+    numpy \
+    opencv-python-headless \
+    matplotlib \
+    scikit-image
 
 # Install R packages
 RUN R -e "install.packages(c('Rcpp', 'R6', 'rlang', 'OpenImageR', 'utils', 'RcppArmadillo', 'reticulate', 'covr', 'knitr', 'rmarkdown', 'testthat', 'remotes'), repos = 'https://cloud.r-project.org/')"
