@@ -32,7 +32,7 @@ RUN apt-get install -y \
     liblapack-dev \
     gfortran
 
-# Install OpenCV dependencies (try without libarpack++2-dev first)
+# Install OpenCV dependencies
 RUN apt-get install -y \
     libgl1 \
     libglib2.0-0 \
@@ -46,18 +46,21 @@ RUN apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Install Python packages
-RUN python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel && \
-    pip3 install --no-cache-dir \
-    numpy \
-    opencv-python-headless \
-    matplotlib \
-    scikit-image
+# Upgrade pip
+RUN python3 -m pip install --break-system-packages --no-cache-dir --upgrade pip
+
+# Install numpy first (required by others)
+RUN pip3 install --break-system-packages --no-cache-dir numpy
+
+# Install other Python packages one by one
+RUN pip3 install --break-system-packages --no-cache-dir opencv-python-headless
+RUN pip3 install --break-system-packages --no-cache-dir matplotlib
+RUN pip3 install --break-system-packages --no-cache-dir scikit-image
 
 # Install R packages
 RUN R -e "install.packages(c('Rcpp', 'R6', 'rlang', 'OpenImageR', 'utils', 'RcppArmadillo', 'reticulate', 'covr', 'knitr', 'rmarkdown', 'testthat', 'remotes'), repos = 'https://cloud.r-project.org/')"
 
-ADD http://www.random.org/strings/?num=10&len=8&digits=on&upperalpha=on&loweralpha-on&unique=on&format=plain&rnd=new uuid
+ADD http://www.random.org/strings/?num=10&len=8&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new uuid
 ARG BUILD_DATE
 RUN echo "$BUILD_DATE"
 RUN R -e "remotes::install_github('mlampros/fastGLCM', upgrade = 'never', dependencies = FALSE, repos = 'https://cloud.r-project.org/')"
