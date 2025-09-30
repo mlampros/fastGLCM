@@ -16,7 +16,7 @@ jobs:
     name: update-python-code
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       - name: remove and clone the python-glcm repository
         working-directory: ${{ github.workspace }}
         run: |

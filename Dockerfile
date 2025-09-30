@@ -1,4 +1,4 @@
-FROM rocker/rstudio:devel
+FROM rocker/rstudio
 LABEL maintainer='Lampros Mouselimis'
 
 # Set environment variables
