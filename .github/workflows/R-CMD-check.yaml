@@ -88,12 +88,19 @@ jobs:
           
           # Get Python path based on OS
           if (Sys.info()["sysname"] == "Windows") {
-            python_path <- Sys.which("python")
+            # On Windows, use python.exe explicitly
+            python_path <- Sys.which("python.exe")
+            if (python_path == "") {
+              python_path <- Sys.which("python")
+            }
+            # Ensure proper path format
+            python_path <- normalizePath(python_path, winslash = "/", mustWork = FALSE)
           } else {
             python_path <- Sys.which("python3")
           }
           
           cat("Python path:", python_path, "\n")
+          cat("Python exists:", file.exists(python_path), "\n")
           Sys.setenv(RETICULATE_PYTHON = python_path)
           
           # Configure and verify
@@ -109,17 +116,23 @@ jobs:
             }
           }
 
-      # Set Python path for subsequent steps
-      - name: Set Python path environment variable
+      # Set Python path for subsequent steps (Unix-like systems)
+      - name: Set Python path environment variable (Linux/macOS)
+        if: runner.os != 'Windows'
         shell: bash
         run: |
-          if [ "$RUNNER_OS" == "Windows" ]; then
-            PYTHON_PATH=$(which python)
-          else
-            PYTHON_PATH=$(which python3)
-          fi
+          PYTHON_PATH=$(which python3)
           echo "RETICULATE_PYTHON=$PYTHON_PATH" >> $GITHUB_ENV
           echo "Python path set to: $PYTHON_PATH"
+
+      # Set Python path for Windows
+      - name: Set Python path environment variable (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $pythonPath = (Get-Command python).Source
+          echo "RETICULATE_PYTHON=$pythonPath" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          echo "Python path set to: $pythonPath"
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
